@@ -1,7 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import 'tailwindcss';
 @import './styles/themes.css';
 @import './styles/typography.css';
 @import './styles/components.css';
