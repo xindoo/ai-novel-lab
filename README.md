@@ -3,7 +3,18 @@
 ![GitHub](https://img.shields.io/github/license/xindoo/ai-novel-lab)
 ![GitHub last commit](https://img.shields.io/github/last-commit/xindoo/ai-novel-lab)
 ![GitHub repo size](https://img.shields.io/github/repo-size/xindoo/ai-novel-lab)
-![Word Count](https://img.shields.io/badge/字数-243k%2B-blue)
+![Word Count](https://img.shields.io/badge/字数-290k%2B-blue)
+
+## 📖 在线阅读
+
+**《大厂重生：我用代码征服世界》** 现已上线！
+
+👉 **立即阅读**: [https://xindoo.github.io/ai-novel-lab](https://xindoo.github.io/ai-novel-lab)
+
+- 经典中文网文风格设计
+- 支持深色/浅色模式切换
+- 移动端优化，随时随地阅读
+- 自动记录阅读进度
 
 一个使用 AI 大模型自动创作长篇小说的实验性项目。本项目通过系统化的工程方法，探索 AI 在长篇叙事创作中的可能性、挑战与解决方案。
 
@@ -26,7 +37,8 @@
 **AI Novel Lab** 是一个完整的 AI 小说创作系统，实现了从大纲设计、章节撰写到一致性维护的全流程自动化。项目成功创作了一部 40 章、24.3 万字的都市重生科技爽文《大厂重生：我用代码征服世界》。
 
 ### 核心成果
-- **完整小说**: 40 个章节，243,178 字
+- **完整小说**: 50 个章节，290,000+ 字
+- **在线阅读**: GitHub Pages 静态网站，快速访问
 - **一致性维护**: 通过系统化方法解决长篇创作的连贯性问题
 - **成本控制**: 使用 DeepSeek 模型，总成本约 20 元人民币
 - **开源代码**: 完整的创作流程、工具链和文档
@@ -58,11 +70,12 @@ ai-novel-lab/
 ├── README.md                    # 项目说明（本文件）
 ├── count_words.py               # 字数统计脚本
 ├── word_counts.txt              # 字数统计结果
+├── docs/                        # GitHub Pages 网站目录
+│   └── index.html               # 在线阅读网站
 └── chapter/                     # 小说正文目录
     ├── 001_死亡回档.md
     ├── 002_面试？我是来教你们写代码的.md
-    ├── 003_新官上任三把火.md
-    └── ... (共40章)
+    └── ... (共 50 章)
 ```
 
 ### 关键文件说明
@@ -99,17 +112,13 @@ ai-novel-lab/
 
 ## 🔧 使用方法
 
-### 1. 探索小说内容
-```bash
-# 查看所有章节
-ls chapter/
+### 1. 在线阅读
+直接访问 GitHub Pages 网站：[https://xindoo.github.io/ai-novel-lab](https://xindoo.github.io/ai-novel-lab)
 
-# 阅读特定章节
-cat chapter/001_死亡回档.md
-
-# 使用字数统计脚本
-python count_words.py
-```
+- 支持章节导航、进度记录
+- 深色/浅色模式切换
+- 字体大小调节
+- 移动端优化
 
 ### 2. 了解创作流程
 1. 阅读 `AGENTS.md` 了解 AI Agent 的写作规范
