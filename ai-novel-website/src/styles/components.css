@@ -1,0 +1,365 @@
+/* Home Page */
+.home-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.home-hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  border-radius: 12px;
+  margin-bottom: 3rem;
+}
+
+.novel-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.novel-author {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.novel-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+}
+
+.novel-stats {
+  margin-bottom: 2rem;
+}
+
+.stat-item {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: var(--bg-tertiary);
+  border-radius: 20px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #a52f2f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(184, 59, 59, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--border-medium);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-secondary);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.btn-nav {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 0.5rem 1.5rem;
+  font-size: 0.95rem;
+}
+
+.btn-nav:hover {
+  background: var(--accent-primary);
+  color: white;
+}
+
+.btn-nav.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-pagination {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--border-light);
+}
+
+.btn-pagination:hover:not(:disabled) {
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+}
+
+.btn-pagination:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Latest Chapters Section */
+.latest-chapters {
+  padding: 2rem 0;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  border-left: 4px solid var(--accent-primary);
+  padding-left: 1rem;
+}
+
+.chapter-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.chapter-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  align-items: center;
+}
+
+.chapter-item:hover {
+  background: var(--bg-tertiary);
+  transform: translateX(8px);
+}
+
+.chapter-number {
+  color: var(--accent-primary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.chapter-title {
+  color: var(--text-primary);
+  flex: 1;
+}
+
+/* Reader Page */
+.reader-container {
+  max-width: var(--reading-max-width);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.reader-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.reader-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.reader-nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.reader-content {
+  background: var(--bg-primary);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.reader-footer {
+  border-top: 1px solid var(--border-light);
+  padding-top: 2rem;
+}
+
+.reader-nav-bottom {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.reader-loading,
+.reader-error {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.reader-error h2 {
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+}
+
+/* Chapter List Page */
+.chapter-list-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.chapter-list-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.chapter-list-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.chapter-list-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.chapter-list-container {
+  background: var(--bg-primary);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.chapter-list-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+  align-items: center;
+}
+
+.chapter-list-item:last-child {
+  border-bottom: none;
+}
+
+.chapter-list-item:hover {
+  background: var(--bg-secondary);
+  transform: translateX(8px);
+}
+
+.chapter-num {
+  color: var(--accent-primary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.chapter-name {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.chapter-words {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.pagination {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.page-info {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  min-width: 100px;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-page,
+  .chapter-list-page {
+    padding: 1rem;
+  }
+
+  .novel-title {
+    font-size: 1.8rem;
+  }
+
+  .home-hero {
+    padding: 2rem 1rem;
+  }
+
+  .chapter-list-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .chapter-num,
+  .chapter-words {
+    justify-self: center;
+  }
+
+  .reader-container {
+    padding: 1rem;
+  }
+
+  .reader-content {
+    padding: 1rem;
+  }
+
+  .reader-title {
+    font-size: 1.5rem;
+  }
+
+  .reader-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn-nav {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -4,6 +4,7 @@
 
 @import './styles/themes.css';
 @import './styles/typography.css';
+@import './styles/components.css';
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
