@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大厂重生：我用代码征服世界 - 在线阅读</title>
+    <meta name="description" content="28 岁码农猝死重生，带着未来 10 年技术认知，从底层 T5 逆袭为数字上帝。都市重生科技爽文，免费在线阅读。">
+    <meta name="keywords" content="小说，网文，都市，重生，程序员，科技，爽文">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+    <style>
+        :root {
+            --bg-primary: #FDFBF7;
+            --bg-secondary: #F5F0E6;
+            --bg-tertiary: #EBE5D5;
+            --text-primary: #2D2D2D;
+            --text-secondary: #5C5C5C;
+            --text-tertiary: #8B8B8B;
+            --accent-primary: #B83B3B;
+            --accent-secondary: #8B4513;
+            --border-light: #E5E0D0;
+            --border-medium: #D0C8B5;
+            --shadow: 0 2px 8px rgba(92, 92, 92, 0.1);
+        }
+
+        .dark {
+            --bg-primary: #1A1A1C;
+            --bg-secondary: #242426;
+            --bg-tertiary: #2D2D30;
+            --text-primary: #E8E8E8;
+            --text-secondary: #B8B8B8;
+            --text-tertiary: #8B8B8B;
+            --accent-primary: #C94848;
+            --accent-secondary: #A65C3E;
+            --border-light: #3A3A3C;
+            --border-medium: #4A4A4C;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            letter-spacing: 0.02em;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 2px solid var(--accent-primary);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-secondary);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border-medium);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border-medium);
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-size: 18px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            padding: 14px 32px;
+            font-size: 18px;
+        }
+
+        /* Chapter List */
+        .chapters-section {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-medium);
+        }
+
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .chapter-card {
+            background: var(--bg-secondary);
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s;
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .chapter-card:hover {
+            background: var(--bg-tertiary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .chapter-number {
+            font-size: 14px;
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        .chapter-title {
+            font-size: 16px;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Reader */
+        .reader-container {
+            max-width: 720px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--accent-primary);
+        }
+
+        .chapter-header h1 {
+            font-size: 32px;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .chapter-meta {
+            font-size: 14px;
+            color: var(--text-tertiary);
+        }
+
+        .chapter-content {
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .chapter-content p {
+            margin-bottom: 1.5em;
+            text-indent: 2em;
+        }
+
+        .chapter-content h3 {
+            text-align: center;
+            margin: 2em 0 1em;
+            color: var(--accent-secondary);
+            font-size: 20px;
+        }
+
+        /* Navigation */
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 2px solid var(--border-medium);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover:not(.disabled) {
+            background: var(--bg-tertiary);
+        }
+
+        .nav-btn.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .nav-btn-home {
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+        }
+
+        .nav-btn-home:hover {
+            background: var(--accent-secondary);
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--bg-tertiary);
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--accent-primary);
+            width: 0;
+            transition: width 0.1s;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 30px 0;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        /* Font Size Controls */
+        .font-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .font-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            border: 1px solid var(--border-medium);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .font-btn.active {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--border-medium);
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-size: 20px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .chapter-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            .chapter-nav {
+                flex-direction: column;
+            }
+
+            .nav-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .font-controls {
+                display: none;
+            }
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-tertiary);
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border-light);
+            border-top-color: var(--accent-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Mobile Menu Drawer */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: var(--bg-secondary);
+            box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+
+        .mobile-menu-close {
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            color: var(--text-primary);
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .mobile-menu-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mobile-menu-nav a {
+            padding: 12px;
+            background: var(--bg-primary);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="site-title">📖 大厂重生</a>
+            <div class="header-actions">
+                <div class="font-controls desktop-nav">
+                    <button class="font-btn" onclick="setFontSize(16)">小</button>
+                    <button class="font-btn active" onclick="setFontSize(18)">中</button>
+                    <button class="font-btn" onclick="setFontSize(20)">大</button>
+                    <button class="font-btn" onclick="setFontSize(22)">特大</button>
+                </div>
+                <button class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <main id="mainContent"></main>
+
+    <footer>
+        <div class="container">
+            <p>《大厂重生：我用代码征服世界》</p>
+            <p>© 2026 AI Novel Lab. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/xindoo/ai-novel-lab" style="color: var(--accent-primary);">GitHub</a>
+            </p>
+        </div>
+    </footer>
+
+    <div class="mobile-menu-overlay" id="menuOverlay" onclick="toggleMobileMenu()"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()">✕ 关闭</button>
+        <nav class="mobile-menu-nav" id="mobileMenuNav"></nav>
+    </div>
+
+    <script>
+        const chapters = [
+            { num: "1", title: "死亡回档", file: "001_死亡回档" },
+            { num: "2", title: "面试？我是来教你们写代码的", file: "002_面试？我是来教你们写代码的" },
+            { num: "3", title: "新官上任三把火", file: "003_新官上任三把火" },
+            { num: "4", title: "这也配叫代码？", file: "004_这也配叫代码？" },
+            { num: "5", title: "赌局：谁才是废物", file: "005_赌局：谁才是废物" },
+            { num: "6", title: "神迹降临", file: "006_神迹降临" },
+            { num: "7", title: "清算时刻", file: "007_清算时刻" },
+            { num: "8", title: "不仅要赢，还要诛心", file: "008_不仅要赢，还要诛心" },
+            { num: "9", title: "猎头疯了", file: "009_猎头疯了" },
+            { num: "10", title: "格局小了", file: "010_格局小了" },
+            { num: "11", title: "跳槽？不，是降临", file: "011_跳槽？不，是降临" },
+            { num: "12", title: "推荐算法？太原始了", file: "012_推荐算法？太原始了" },
+            { num: "13", title: "女王臣服", file: "013_女王臣服" },
+            { num: "14", title: "王霸天的阴谋", file: "014_王霸天的阴谋" },
+            { num: "15", title: "超脑进化·神之手", file: "015_超脑进化·神之手" },
+            { num: "15.5", title: "超脑的代价", file: "015.5_超脑的代价" },
+            { num: "16", title: "第一桶金？不，是金山", file: "016_第一桶金？不，是金山" },
+            { num: "16.5", title: "第一滴血", file: "016.5_第一滴血" },
+            { num: "17", title: "清理门户", file: "017_清理门户" },
+            { num: "18", title: "双美争锋", file: "018_双美争锋" },
+            { num: "19", title: "硅谷的傲慢", file: "019_硅谷的傲慢" },
+            { num: "20", title: "自立门户", file: "020_自立门户" },
+            { num: "20.5", title: "巅峰前夜", file: "020.5_巅峰前夜" },
+            { num: "21", title: "巅峰智能", file: "021_巅峰智能" },
+            { num: "22", title: "幻影的围剿", file: "022_幻影的围剿" },
+            { num: "23", title: "冰山融化", file: "023_冰山融化" },
+            { num: "24", title: "做空幻影", file: "024_做空幻影" },
+            { num: "24.5", title: "量子黎明", file: "024.5_量子黎明" },
+            { num: "25", title: "收购云腾", file: "025_收购云腾" },
+            { num: "26", title: "神脑三阶·量子领域", file: "026_神脑三阶·量子领域" },
+            { num: "27", title: "全球首富", file: "027_全球首富" },
+            { num: "28", title: "三女同台", file: "028_三女同台" },
+            { num: "28.5", title: "晓晓的产品哲学", file: "028.5_晓晓的产品哲学" },
+            { num: "29", title: "天际的宣战", file: "029_天际的宣战" },
+            { num: "30", title: "决战西海岸", file: "030_决战西海岸" },
+            { num: "31", title: "芯片战争", file: "031_芯片战争" },
+            { num: "32", title: "做空华尔街", file: "032_做空华尔街" },
+            { num: "32.5", title: "李薇的资本游戏", file: "032.5_李薇的资本游戏" },
+            { num: "33", title: "虚空破灭", file: "033_虚空破灭" },
+            { num: "34", title: "王霸天的末路", file: "034_王霸天的末路" },
+            { num: "35", title: "机械飞升", file: "035_机械飞升" },
+            { num: "36", title: "大国重器", file: "036_大国重器" },
+            { num: "37", title: "月球数据中心", file: "037_月球数据中心" },
+            { num: "38", title: "人工智能觉醒", file: "038_人工智能觉醒" },
+            { num: "38.5", title: "人造太阳", file: "038.5_人造太阳" },
+            { num: "39", title: "世纪婚礼", file: "039_世纪婚礼" },
+            { num: "40", title: "新的征程", file: "040_新的征程" },
+            { num: "41", title: "归家", file: "041_归家" },
+            { num: "43", title: "狱中对话", file: "043_狱中对话" },
+            { num: "44", title: "超脑真相", file: "044_超脑真相" }
+        ];
+
+        chapters.sort((a, b) => parseFloat(a.num) - parseFloat(b.num));
+
+        function initTheme() {
+            const saved = localStorage.getItem('novel-theme');
+            if (saved === 'dark') {
+                document.body.classList.add('dark');
+                document.querySelector('.theme-toggle').textContent = '☀️';
+            }
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            localStorage.setItem('novel-theme', isDark ? 'dark' : 'light');
+            document.querySelector('.theme-toggle').textContent = isDark ? '☀️' : '🌙';
+        }
+
+        function setFontSize(size) {
+            document.documentElement.style.setProperty('--text-base', size + 'px');
+            localStorage.setItem('novel-fontsize', size);
+            document.querySelectorAll('.font-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (parseInt(btn.textContent === '小' ? 16 : btn.textContent === '中' ? 18 : btn.textContent === '大' ? 20 : 22) === size) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        function initFontSize() {
+            const saved = parseInt(localStorage.getItem('novel-fontsize')) || 18;
+            setFontSize(saved);
+        }
+
+        function updateProgress() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+            document.getElementById('menuOverlay').classList.toggle('active');
+        }
+
+        function renderChapterList() {
+            const grid = document.createElement('div');
+            grid.className = 'chapters-section';
+            
+            const title = document.createElement('h2');
+            title.className = 'section-title';
+            title.textContent = '章节目录';
+            grid.appendChild(title);
+
+            const chapterGrid = document.createElement('div');
+            chapterGrid.className = 'chapter-grid';
+
+            chapters.forEach((chapter, index) => {
+                const link = document.createElement('a');
+                link.href = `?chapter=${index}`;
+                link.className = 'chapter-card';
+                link.innerHTML = `
+                    <span class="chapter-number">第${chapter.num}章</span>
+                    <span class="chapter-title">${chapter.title}</span>
+                `;
+                chapterGrid.appendChild(link);
+            });
+
+            grid.appendChild(chapterGrid);
+            return grid;
+        }
+
+        function renderHomePage() {
+            const main = document.getElementById('mainContent');
+            main.innerHTML = '';
+
+            // Hero section
+            const hero = document.createElement('section');
+            hero.className = 'hero';
+            hero.innerHTML = `
+                <h1>大厂重生：我用代码征服世界</h1>
+                <p>28 岁码农猝死重生，带着未来 10 年技术认知，从底层 T5 逆袭为数字上帝。<br>
+                这一世，老子不仅要入职，还要踩着你们的尸骨上位！</p>
+                <div class="hero-buttons">
+                    <a href="?chapter=0" class="btn btn-primary btn-large">开始阅读</a>
+                    <a href="#chapters" class="btn btn-secondary btn-large">章节目录</a>
+                </div>
+            `;
+            main.appendChild(hero);
+
+            // Chapter list
+            main.appendChild(renderChapterList());
+        }
+
+        function parseMarkdown(markdown) {
+            let html = markdown
+                .replace(/^## 第 (\d+(?:\.\d+)?) 章\s+(.+)$/gm, '')
+                .replace(/^### \d+$/gm, '')
+                .replace(/\*\*\*(.*?)\*\*\*/g, '<h3>$1</h3>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\n\n+/g, '</p><p>')
+                .replace(/\n/g, '<br>')
+                .trim();
+            
+            return '<p>' + html + '</p>';
+        }
+
+        function renderChapter(index) {
+            const chapter = chapters[index];
+            if (!chapter) return;
+
+            const main = document.getElementById('mainContent');
+            main.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>加载中...</p></div>';
+
+            try {
+                const response = await fetch(`chapter/${chapter.file}.md`);
+                const markdown = await response.text();
+                const content = parseMarkdown(markdown);
+
+                const prevChapter = index > 0 ? chapters[index - 1] : null;
+                const nextChapter = index < chapters.length - 1 ? chapters[index + 1] : null;
+
+                main.innerHTML = `
+                    <div class="reader-container">
+                        <div class="chapter-header">
+                            <h1>第${chapter.num}章 ${chapter.title}</h1>
+                            <div class="chapter-meta">共${markdown.length}字 · 预计阅读${Math.ceil(markdown.length / 500)}分钟</div>
+                        </div>
+                        <div class="chapter-content">${content}</div>
+                        <nav class="chapter-nav">
+                            <a href="?chapter=${index - 1}" class="nav-btn ${!prevChapter ? 'disabled' : ''}">
+                                ← 上一章
+                            </a>
+                            <a href="index.html" class="nav-btn nav-btn-home">📖 目录</a>
+                            <a href="?chapter=${index + 1}" class="nav-btn ${!nextChapter ? 'disabled' : ''}">
+                                下一章 →
+                            </a>
+                        </nav>
+                    </div>
+                `;
+
+                window.scrollTo(0, 0);
+                document.title = `第${chapter.num}章 ${chapter.title} - 大厂重生`;
+
+            } catch (error) {
+                main.innerHTML = `<div class="reader-container"><div class="chapter-content"><p>章节加载失败：${error.message}</p></div></div>`;
+            }
+        }
+
+        function initMobileMenu() {
+            const nav = document.getElementById('mobileMenuNav');
+            chapters.forEach((chapter, index) => {
+                const link = document.createElement('a');
+                link.href = `?chapter=${index}`;
+                link.textContent = `第${chapter.num}章 ${chapter.title}`;
+                link.onclick = toggleMobileMenu;
+                nav.appendChild(link);
+            });
+        }
+
+        function router() {
+            const params = new URLSearchParams(window.location.search);
+            const chapterIndex = params.get('chapter');
+
+            if (chapterIndex !== null) {
+                renderChapter(parseInt(chapterIndex));
+            } else {
+                renderHomePage();
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            initFontSize();
+            initMobileMenu();
+            router();
+            window.addEventListener('scroll', updateProgress);
+            document.addEventListener('keydown', (e) => {
+                const params = new URLSearchParams(window.location.search);
+                const chapterIndex = parseInt(params.get('chapter') || '0');
+                
+                if (e.key === 'ArrowLeft' && chapterIndex > 0) {
+                    window.location.href = `?chapter=${chapterIndex - 1}`;
+                } else if (e.key === 'ArrowRight' && chapterIndex < chapters.length - 1) {
+                    window.location.href = `?chapter=${chapterIndex + 1}`;
+                }
+            });
+        });
+
+        window.addEventListener('popstate', router);
+    </script>
+</body>
+</html>
