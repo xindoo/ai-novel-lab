@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './styles/themes.css';
+@import './styles/typography.css';
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; padding: 0; min-height: 100vh; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--text-tertiary); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+::selection { background-color: var(--accent-primary); color: var(--bg-primary); }
+:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 2px; }
+.transition-theme { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }

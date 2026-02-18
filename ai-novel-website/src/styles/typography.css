@@ -1,0 +1,17 @@
+:root {
+  --font-sans: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  --font-serif: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+  --text-base: 18px; --line-height: 1.75; --letter-spacing: 0.02em; --reading-max-width: 720px;
+}
+.text-size-sm { --text-base: 16px; }
+.text-size-md { --text-base: 18px; }
+.text-size-lg { --text-base: 20px; }
+.text-size-xl { --text-base: 22px; }
+body { font-family: var(--font-sans); font-size: var(--text-base); line-height: var(--line-height); letter-spacing: var(--letter-spacing); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+.prose { font-family: var(--font-serif); max-width: var(--reading-max-width); }
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 { font-family: var(--font-sans); font-weight: 600; line-height: 1.4; letter-spacing: 0.03em; }
+.prose p { margin-bottom: 1.5em; text-align: justify; }
+.reader-content { font-family: var(--font-serif); font-size: var(--text-base); line-height: var(--line-height); letter-spacing: var(--letter-spacing); }
+.reader-content h2 { font-family: var(--font-sans); font-size: 1.5em; font-weight: 700; margin-bottom: 1em; color: var(--text-primary); border-bottom: 2px solid var(--accent-primary); padding-bottom: 0.5em; }
+.reader-content p { margin-bottom: 1.5em; text-indent: 2em; }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap');

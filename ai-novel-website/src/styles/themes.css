@@ -1,0 +1,13 @@
+:root {
+  --bg-primary: #FDFBF7; --bg-secondary: #F5F0E6; --bg-tertiary: #EBE5D5;
+  --text-primary: #2D2D2D; --text-secondary: #5C5C5C; --text-tertiary: #8B8B8B;
+  --accent-primary: #B83B3B; --accent-secondary: #8B4513; --accent-tertiary: #2F5D6E;
+  --border-light: #E5E0D0; --border-medium: #D0C8B5;
+}
+.dark {
+  --bg-primary: #1A1A1C; --bg-secondary: #242426; --bg-tertiary: #2D2D30;
+  --text-primary: #E8E8E8; --text-secondary: #B8B8B8; --text-tertiary: #8B8B8B;
+  --accent-primary: #C94848; --accent-secondary: #A65C3E; --accent-tertiary: #4A7C8C;
+  --border-light: #3A3A3C; --border-medium: #4A4A4C;
+}
+body { background-color: var(--bg-primary); color: var(--text-primary); transition: background-color 0.3s ease, color 0.3s ease; }
