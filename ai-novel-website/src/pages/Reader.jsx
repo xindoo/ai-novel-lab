@@ -27,8 +27,8 @@ export function Reader() {
           throw new Error('章节不存在');
         }
         
-        const filename = chapterInfo.filename.replace('.md', '');
-        const response = await fetch(`/ai-novel-lab/chapter/${filename}.md`);
+        const filename = chapterInfo.filename;
+        const response = await fetch(`/ai-novel-lab/chapter/${encodeURIComponent(filename)}`);
         if (!response.ok) {
           throw new Error('章节加载失败');
         }
