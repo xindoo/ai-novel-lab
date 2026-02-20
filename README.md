@@ -113,7 +113,7 @@ ai-novel-lab/
 ## 🔧 使用方法
 
 ### 1. 在线阅读
-直接访问 GitHub Pages 网站：[https://xindoo.github.io/ai-novel-lab](https://xindoo.github.io/ai-novel-lab)
+直接访问 GitHub Pages 网站：[http://xindoo.github.io/ai-novel-lab](http://xindoo.github.io/ai-novel-lab)
 
 - 支持章节导航、进度记录
 - 深色/浅色模式切换
