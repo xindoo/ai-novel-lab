@@ -433,20 +433,31 @@
     text-align: center;
   }
 
-  /* Responsive Settings Bar */
+  /* Responsive Settings Bar - 紧凑模式 */
   .reader-settings-bar {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
+    flex-direction: row;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 1rem;
   }
 
   .settings-group {
-    width: 100%;
-    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .settings-label {
+    font-size: 0.8rem;
   }
 
   .btn-settings {
-    min-width: 50px;
-    height: 40px;
+    min-width: 36px;
+    height: 30px;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .font-size-indicator {
+    min-width: 24px;
+    font-size: 0.75rem;
   }
 }
