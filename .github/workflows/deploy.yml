@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - 'ai-novel-website/**'
+      - 'chapter/**'
   workflow_dispatch:
 
 permissions:
