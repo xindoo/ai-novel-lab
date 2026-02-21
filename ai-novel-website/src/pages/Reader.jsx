@@ -3,12 +3,17 @@ import { useParams, Link } from 'react-router-dom';
 import chaptersData from '../data/chapters.json';
 import { remark } from 'remark';
 import html from 'remark-html';
+import { useFontSize } from '../hooks/useFontSize';
+import { useTheme } from '../hooks/useTheme';
 
 export function Reader() {
   const { chapterNumber } = useParams();
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const { fontSizeClass, fontSizeLabel, increaseFontSize, decreaseFontSize, canDecrease, canIncrease } = useFontSize();
+  const { theme, setTheme } = useTheme();
 
   const chapter = chaptersData.chapters.find(c => c.id === chapterNumber);
   const chapterIndex = chaptersData.chapters.findIndex(c => c.id === chapterNumber);
@@ -63,7 +68,7 @@ export function Reader() {
   }
 
   return (
-    <div className="reader-container">
+    <div className={`reader-container ${fontSizeClass}`}>
       <div className="reader-header">
         <h1 className="reader-title">第{chapter.number}章 {chapter.title}</h1>
         <div className="reader-nav">
@@ -85,7 +90,49 @@ export function Reader() {
         </div>
       </div>
 
-      <article 
+      {/* 阅读设置工具栏 */}
+      <div className="reader-settings-bar">
+        <div className="settings-group">
+          <span className="settings-label">字号</span>
+          <button
+            className={`btn-settings ${!canDecrease ? 'disabled' : ''}`}
+            onClick={decreaseFontSize}
+            disabled={!canDecrease}
+            aria-label="减小字号"
+          >
+            A-
+          </button>
+          <span className="font-size-indicator">{fontSizeLabel}</span>
+          <button
+            className={`btn-settings ${!canIncrease ? 'disabled' : ''}`}
+            onClick={increaseFontSize}
+            disabled={!canIncrease}
+            aria-label="增大字号"
+          >
+            A+
+          </button>
+        </div>
+
+        <div className="settings-group">
+          <span className="settings-label">主题</span>
+          <button
+            className={`btn-settings ${theme === 'light' ? 'active' : ''}`}
+            onClick={() => setTheme('light')}
+            aria-label="日间模式"
+          >
+            ☀ 日间
+          </button>
+          <button
+            className={`btn-settings ${theme === 'dark' ? 'active' : ''}`}
+            onClick={() => setTheme('dark')}
+            aria-label="夜间模式"
+          >
+            ☾ 夜间
+          </button>
+        </div>
+      </div>
+
+      <article
         className="reader-content"
         dangerouslySetInnerHTML={{ __html: content }}
       />

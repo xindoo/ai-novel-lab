@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { storage } from '../utils/storage';
 
-const FONT_SIZES = { sm: 'chinese-sm', md: 'chinese-base', lg: 'chinese-lg', xl: 'chinese-xl' };
+const FONT_SIZES = { sm: 'text-size-sm', md: 'text-size-md', lg: 'text-size-lg', xl: 'text-size-xl' };
+const FONT_SIZE_LABELS = { sm: '小', md: '中', lg: '大', xl: '特大' };
+const FONT_SIZE_VALUES = ['sm', 'md', 'lg', 'xl'];
 
 export function useFontSize() {
   const [fontSize, setFontSizeState] = useState(() => storage.getFontSize() || 'md');
@@ -12,19 +14,31 @@ export function useFontSize() {
 
   const increaseFontSize = () => {
     setFontSizeState(prev => {
-      const sizes = Object.keys(FONT_SIZES);
-      const currentIndex = sizes.indexOf(prev);
-      return sizes[Math.min(currentIndex + 1, sizes.length - 1)];
+      const currentIndex = FONT_SIZE_VALUES.indexOf(prev);
+      return FONT_SIZE_VALUES[Math.min(currentIndex + 1, FONT_SIZE_VALUES.length - 1)];
     });
   };
 
   const decreaseFontSize = () => {
     setFontSizeState(prev => {
-      const sizes = Object.keys(FONT_SIZES);
-      const currentIndex = sizes.indexOf(prev);
-      return sizes[Math.max(currentIndex - 1, 0)];
+      const currentIndex = FONT_SIZE_VALUES.indexOf(prev);
+      return FONT_SIZE_VALUES[Math.max(currentIndex - 1, 0)];
     });
   };
 
-  return { fontSize, fontSizeClass: FONT_SIZES[fontSize], setFontSize, increaseFontSize, decreaseFontSize };
+  const canDecrease = FONT_SIZE_VALUES.indexOf(fontSize) > 0;
+  const canIncrease = FONT_SIZE_VALUES.indexOf(fontSize) < FONT_SIZE_VALUES.length - 1;
+
+  return {
+    fontSize,
+    fontSizeClass: FONT_SIZES[fontSize],
+    fontSizeLabel: FONT_SIZE_LABELS[fontSize],
+    setFontSize,
+    increaseFontSize,
+    decreaseFontSize,
+    canDecrease,
+    canIncrease,
+    FONT_SIZE_VALUES,
+    FONT_SIZE_LABELS
+  };
 }
