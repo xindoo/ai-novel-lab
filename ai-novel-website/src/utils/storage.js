@@ -2,6 +2,7 @@ const STORAGE_KEYS = {
   THEME: 'novel_theme',
   FONT_SIZE: 'novel_font_size',
   READING_PROGRESS: 'novel_reading_progress',
+  BOOKMARKS: 'novel_bookmarks',
 };
 
 export const storage = {
@@ -46,4 +47,41 @@ export const storage = {
     return this.set(STORAGE_KEYS.READING_PROGRESS, progress);
   },
   clearReadingProgress() { return this.remove(STORAGE_KEYS.READING_PROGRESS); },
+
+  // 书签管理
+  getBookmarks() {
+    return this.get(STORAGE_KEYS.BOOKMARKS, []);
+  },
+  setBookmarks(bookmarks) {
+    return this.set(STORAGE_KEYS.BOOKMARKS, bookmarks);
+  },
+  addBookmark(bookmark) {
+    const bookmarks = this.getBookmarks();
+    // 避免重复添加
+    if (!bookmarks.find(b => b.chapterId === bookmark.chapterId)) {
+      bookmarks.push({
+        ...bookmark,
+        createdAt: Date.now()
+      });
+      this.setBookmarks(bookmarks);
+    }
+    return bookmarks;
+  },
+  removeBookmark(chapterId) {
+    const bookmarks = this.getBookmarks();
+    const filtered = bookmarks.filter(b => b.chapterId !== chapterId);
+    this.setBookmarks(filtered);
+    return filtered;
+  },
+  isBookmarked(chapterId) {
+    const bookmarks = this.getBookmarks();
+    return bookmarks.some(b => b.chapterId === chapterId);
+  },
+  toggleBookmark(bookmark) {
+    if (this.isBookmarked(bookmark.chapterId)) {
+      return this.removeBookmark(bookmark.chapterId);
+    } else {
+      return this.addBookmark(bookmark);
+    }
+  },
 };

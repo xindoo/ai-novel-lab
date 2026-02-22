@@ -171,6 +171,62 @@
   flex: 1;
 }
 
+/* 书签相关样式 */
+.bookmark-indicator {
+  color: var(--accent-primary);
+  margin-right: 0.25rem;
+}
+
+.btn-bookmark.bookmarked {
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+}
+
+.bookmarks-section {
+  padding: 2rem 0;
+}
+
+.bookmark-item {
+  position: relative;
+  padding-right: 3rem;
+}
+
+.bookmark-link {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  align-items: center;
+  flex: 1;
+}
+
+.btn-remove-bookmark {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-tertiary);
+  color: var(--text-tertiary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.btn-remove-bookmark:hover {
+  background: var(--accent-primary);
+  color: white;
+}
+
 /* Reader Page */
 .reader-container {
   max-width: var(--reading-max-width);
@@ -459,5 +515,25 @@
   .font-size-indicator {
     min-width: 24px;
     font-size: 0.75rem;
+  }
+
+  .btn-bookmark {
+    padding: 0.15rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .bookmark-item {
+    padding-right: 2.5rem;
+  }
+
+  .bookmark-link {
+    padding: 0.75rem 1rem;
+  }
+
+  .btn-remove-bookmark {
+    width: 24px;
+    height: 24px;
+    right: 0.75rem;
+    font-size: 0.85rem;
   }
 }

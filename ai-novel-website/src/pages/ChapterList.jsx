@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import chaptersData from '../data/chapters.json';
+import { useBookmarks } from '../hooks/useBookmarks';
 
 const CHAPTERS_PER_PAGE = 20;
 
 export function ChapterListPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const { chapters, novel } = chaptersData;
+  const { isBookmarked } = useBookmarks();
   
   const totalPages = Math.ceil(chapters.length / CHAPTERS_PER_PAGE);
   const startIndex = (currentPage - 1) * CHAPTERS_PER_PAGE;
@@ -35,7 +37,10 @@ export function ChapterListPage() {
               to={`/chapter/${chapter.id}`}
               className="chapter-list-item"
             >
-              <span className="chapter-num">第{chapter.number}章</span>
+              <span className="chapter-num">
+                {isBookmarked(chapter.id) && <span className="bookmark-indicator">★</span>}
+                第{chapter.number}章
+              </span>
               <span className="chapter-name">{chapter.title}</span>
               <span className="chapter-words">{chapter.wordCount}字</span>
             </Link>

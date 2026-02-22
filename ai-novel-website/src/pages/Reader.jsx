@@ -5,6 +5,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import { useFontSize } from '../hooks/useFontSize';
 import { useTheme } from '../hooks/useTheme';
+import { useBookmarks } from '../hooks/useBookmarks';
 
 export function Reader() {
   const { chapterNumber } = useParams();
@@ -14,6 +15,7 @@ export function Reader() {
 
   const { fontSizeClass, fontSizeLabel, increaseFontSize, decreaseFontSize, canDecrease, canIncrease } = useFontSize();
   const { theme, setTheme } = useTheme();
+  const { toggleBookmark, isBookmarked } = useBookmarks();
 
   const chapter = chaptersData.chapters.find(c => c.id === chapterNumber);
   const chapterIndex = chaptersData.chapters.findIndex(c => c.id === chapterNumber);
@@ -128,6 +130,20 @@ export function Reader() {
             aria-label="夜间模式"
           >
             ☾ 夜间
+          </button>
+        </div>
+
+        <div className="settings-group">
+          <button
+            className={`btn-settings btn-bookmark ${isBookmarked(chapterNumber) ? 'bookmarked' : ''}`}
+            onClick={() => toggleBookmark({
+              chapterId: chapter.id,
+              chapterNumber: chapter.number,
+              title: chapter.title
+            })}
+            aria-label={isBookmarked(chapterNumber) ? "取消书签" : "添加书签"}
+          >
+            {isBookmarked(chapterNumber) ? '★ 已收藏' : '☆ 收藏'}
           </button>
         </div>
       </div>
