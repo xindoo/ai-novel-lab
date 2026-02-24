@@ -171,6 +171,18 @@ export function Reader() {
             <span className="btn btn-nav disabled">下一章 →</span>
           )}
         </div>
+        <div className="reader-footer-info">
+          <a
+            href="https://github.com/xindoo/ai-novel-lab"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="github-link"
+            aria-label="访问 GitHub 仓库"
+          >
+            <span className="github-icon">⚡</span>
+            <span className="github-text">GitHub</span>
+          </a>
+        </div>
       </div>
     </div>
   );

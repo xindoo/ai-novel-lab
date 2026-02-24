@@ -25,6 +25,18 @@ export function Home() {
             章节目录
           </Link>
         </div>
+        <div className="github-link-home">
+          <a
+            href="https://github.com/xindoo/ai-novel-lab"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="github-link"
+            aria-label="访问 GitHub 仓库"
+          >
+            <span className="github-icon">⚡</span>
+            <span className="github-text">GitHub 仓库</span>
+          </a>
+        </div>
       </div>
 
       {/* 书签列表 */}
