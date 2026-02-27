@@ -10,8 +10,8 @@ export default defineConfig({
     {
       name: 'copy-chapters',
       writeBundle(options) {
-        const srcDir = resolve(__dirname, '../chapter')
-        const destDir = resolve(options.dir, 'chapter')
+        const srcDir = resolve(__dirname, '../chapters')
+        const destDir = resolve(options.dir, 'chapters')
         
         if (!fs.existsSync(destDir)) {
           fs.mkdirSync(destDir, { recursive: true })

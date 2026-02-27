@@ -18,7 +18,7 @@ export function Home() {
           <span className="stat-item">共 {novel.totalChapters} 章</span>
         </div>
         <div className="cta-buttons">
-          <Link to={`/chapter/${chapters[0]?.id}`} className="btn btn-primary">
+          <Link to={`/chapters/${chapters[0]?.id}`} className="btn btn-primary">
             开始阅读
           </Link>
           <Link to="/chapters" className="btn btn-secondary">
@@ -47,7 +47,7 @@ export function Home() {
             {bookmarks.map((bookmark) => (
               <div key={bookmark.chapterId} className="chapter-item bookmark-item">
                 <Link
-                  to={`/chapter/${bookmark.chapterId}`}
+                  to={`/chapters/${bookmark.chapterId}`}
                   className="bookmark-link"
                 >
                   <span className="chapter-number">★ 第{bookmark.chapterNumber}章</span>
@@ -75,7 +75,7 @@ export function Home() {
           {latestChapters.map((chapter) => (
             <Link
               key={chapter.id}
-              to={`/chapter/${chapter.id}`}
+              to={`/chapters/${chapter.id}`}
               className="chapter-item"
             >
               <span className="chapter-number">第{chapter.number}章</span>

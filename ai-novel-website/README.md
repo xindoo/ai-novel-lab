@@ -63,7 +63,7 @@ ai-novel-website/
 │   └── index.css           # 全局样式
 ├── scripts/
 │   └── generate-chapter-data.js  # 章节数据生成脚本
-├── chapter/                # 章节文件（符号链接）
+├── chapters/                # 章节文件（符号链接）
 ├── .github/workflows/
 │   └── deploy.yml          # GitHub Actions 部署配置
 ├── index.html
@@ -110,7 +110,7 @@ npm run preview
 
 ## 📖 章节格式
 
-章节文件位于 `chapter/` 目录，命名格式：`XXX_章节名.md`
+章节文件位于 `chapters/` 目录，命名格式：`XXX_章节名.md`
 
 示例：
 ```markdown

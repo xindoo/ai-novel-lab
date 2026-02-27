@@ -80,7 +80,7 @@ ai-novel-lab/
 │   │   │   ├── ChapterList.jsx
 │   │   │   └── Reader.jsx
 │   └── package.json
-└── chapter/                     # 小说正文目录
+└── chapters/                     # 小说正文目录
     ├── 001_死亡回档.md
     ├── 002_面试？我是来教你们写代码的.md
     └── ... (共 50 章)
@@ -91,7 +91,7 @@ ai-novel-lab/
 - **AGENTS.md**: AI Agent 的操作手册，定义了写作规范、流程和约束条件
 - **章节大纲.md**: 小说的完整设定，包括故事梗概、四卷结构、人物小传
 - **progress.md**: 实时追踪每章的写作状态、字数、完成日期
-- **chapter/**: 所有已完成的章节文件，按三位数字编号排序
+- **chapters/**: 所有已完成的章节文件，按三位数字编号排序
 - **ai-novel-website/**: React 构建的在线阅读网站
 
 ## 🛠️ 技术栈

@@ -18,7 +18,7 @@ def count_chinese_words(text):
     return len(re.findall(r'\S', text))
 
 def main():
-    chapter_dir = 'chapter'
+    chapter_dir = 'chapters'
     if not os.path.exists(chapter_dir):
         print(f"目录 {chapter_dir} 不存在")
         sys.exit(1)

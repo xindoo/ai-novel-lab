@@ -34,7 +34,7 @@ export function ChapterListPage() {
           {currentChapters.map((chapter) => (
             <Link
               key={chapter.id}
-              to={`/chapter/${chapter.id}`}
+              to={`/chapters/${chapter.id}`}
               className="chapter-list-item"
             >
               <span className="chapter-num">

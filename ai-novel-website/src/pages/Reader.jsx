@@ -35,7 +35,7 @@ export function Reader() {
         }
         
         const filename = chapterInfo.filename;
-        const response = await fetch(`/ai-novel-lab/chapter/${encodeURIComponent(filename)}`);
+        const response = await fetch(`/ai-novel-lab/chapters/${encodeURIComponent(filename)}`);
         if (!response.ok) {
           throw new Error('章节加载失败');
         }
@@ -75,7 +75,7 @@ export function Reader() {
         <h1 className="reader-title">第{chapter.number}章 {chapter.title}</h1>
         <div className="reader-nav">
           {prevChapter ? (
-            <Link to={`/chapter/${prevChapter.id}`} className="btn btn-nav">
+            <Link to={`/chapters/${prevChapter.id}`} className="btn btn-nav">
               ← 上一章
             </Link>
           ) : (
@@ -83,7 +83,7 @@ export function Reader() {
           )}
           <Link to="/chapters" className="btn btn-nav">目录</Link>
           {nextChapter ? (
-            <Link to={`/chapter/${nextChapter.id}`} className="btn btn-nav">
+            <Link to={`/chapters/${nextChapter.id}`} className="btn btn-nav">
               下一章 →
             </Link>
           ) : (
@@ -156,7 +156,7 @@ export function Reader() {
       <div className="reader-footer">
         <div className="reader-nav-bottom">
           {prevChapter ? (
-            <Link to={`/chapter/${prevChapter.id}`} className="btn btn-nav">
+            <Link to={`/chapters/${prevChapter.id}`} className="btn btn-nav">
               ← 上一章
             </Link>
           ) : (
@@ -164,7 +164,7 @@ export function Reader() {
           )}
           <Link to="/chapters" className="btn btn-nav">目录</Link>
           {nextChapter ? (
-            <Link to={`/chapter/${nextChapter.id}`} className="btn btn-nav">
+            <Link to={`/chapters/${nextChapter.id}`} className="btn btn-nav">
               下一章 →
             </Link>
           ) : (

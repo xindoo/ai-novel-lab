@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const CHAPTER_DIR = path.join(__dirname, '..', '..', 'chapter');
+const CHAPTER_DIR = path.join(__dirname, '..', '..', 'chapters');
 const DATA_DIR = path.join(__dirname, '..', 'src', 'data');
 
 if (!fs.existsSync(DATA_DIR)) {

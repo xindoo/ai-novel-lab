@@ -21,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/chapters" element={<ChapterListPage />} />
-        <Route path="/chapter/:chapterNumber" element={<Reader />} />
+        <Route path="/chapters/:chapterNumber" element={<Reader />} />
       </Routes>
     </HashRouter>
   );
