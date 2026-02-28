@@ -17,7 +17,7 @@ do
 
     # 使用 timeout 命令执行 opencode
     # -s 9 表示如果超时则发送 SIGKILL 信号（强制杀死）
-    timeout -s 9 $TIMEOUT_DURATION opencode run "ulw 现在请写下第${index}章，注意剧情要和之前延续,如果已经写过了，就看下是否有需要优化的地方"
+    timeout -s 9 $TIMEOUT_DURATION opencode run "ulw 现在请完成第${index}章的内容，其他都不要考虑，注意剧情要和之前延续。如果该章节已经完成，就看下是否有需要优化的地方，不要询问我的意见，先直接完成任务"
     
     # 获取命令执行后的状态码
     EXIT_CODE=$?
