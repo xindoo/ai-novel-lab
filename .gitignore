@@ -29,3 +29,4 @@ yarn-error.log*
 ai-novel-website/src/data/chapters.json
 ai-novel-website/src/data/novel-info.json
 .claude
+.workspace
