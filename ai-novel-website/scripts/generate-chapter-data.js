@@ -56,13 +56,13 @@ function loadChapters() {
 function generateChapterData() {
   const chapters = loadChapters();
   
-  const chapterData = {
-    novel: {
-      title: '大厂重生：我用代码征服世界',
-      author: 'AI Novel Lab',
-      description: '程序员林峰重生回到 10 年前，获得超脑系统，从云腾集团开始，用代码征服世界。',
-      totalChapters: chapters.length,
-    },
+   const chapterData = {
+     novel: {
+       title: '大厂重生：我用代码征服世界',
+       author: 'xindoo with AI',
+       description: '程序员林峰重生回到 10 年前，获得超脑系统，从云腾集团开始，用代码征服世界。',
+       totalChapters: chapters.length,
+     },
     chapters: chapters.map((chapter, index) => ({
       ...chapter,
       prevChapter: index > 0 ? chapters[index - 1].id : null,
